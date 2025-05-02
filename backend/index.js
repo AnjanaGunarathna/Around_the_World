@@ -18,7 +18,10 @@ const __dirname = path.resolve();
 
 app.disable('x-powered-by'); // less hackers know about our stack
 
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({
+	origin: process.env.FRONTEND_URL,
+	credentials: true,
+}));
 
 app.use(express.json()); // allows us to parse incoming requests:req.body
 app.use(cookieParser()); // allows us to parse incoming cookies
