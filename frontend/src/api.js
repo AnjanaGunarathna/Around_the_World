@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://around-the-world-w6y5.onrender.com",
+    baseURL: "https://around-the-world-tt3t.onrender.com",
     withCredentials: true,
 });
 
