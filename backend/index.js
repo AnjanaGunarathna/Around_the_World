@@ -19,7 +19,7 @@ const __dirname = path.resolve();
 app.disable('x-powered-by'); // less hackers know about our stack
 
 app.use(cors({
-	origin: process.env.FRONTEND_URL,
+	origin: "https://around-the-world-i283.vercel.app",
 	credentials: true,
 }));
 
