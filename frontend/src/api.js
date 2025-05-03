@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://around-the-world-tt3t.onrender.com",
+    baseURL: process.env.FRONTEND_URL,
     withCredentials: true,
 });
 

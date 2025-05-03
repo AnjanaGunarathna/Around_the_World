@@ -19,15 +19,11 @@ const __dirname = path.resolve();
 app.disable('x-powered-by'); // less hackers know about our stack
 
 
-const allowedOrigin = "https://around-the-world-1.onrender.com";
 app.use(cors({
-  origin: allowedOrigin,
-  credentials: true
+	origin: process.env.FRONTEND_URL,
+	credentials: true,
 }));
-app.options("*", cors({
-  origin: allowedOrigin,
-  credentials: true
-}));
+
 
 app.use(express.json()); // allows us to parse incoming requests:req.body
 app.use(cookieParser()); // allows us to parse incoming cookies
