@@ -30,7 +30,7 @@ const Register = () =>
             await API.post("/auth/register", form);
             setLoading(false);
             alert("User registered successfully!");
-            navigate("/login");
+            navigate("/");
         } catch (err)
         {
             setLoading(false);
