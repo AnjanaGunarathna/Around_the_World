@@ -53,7 +53,7 @@ export default function Navbar()
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex items-center">
-                        <Link to="/" className="flex-shrink-0 flex items-center">
+                        <Link to="/onboard" className="flex-shrink-0 flex items-center">
                             <svg className="h-8 w-8 text-indigo-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h2.5M15 11h3.5a2 2 0 012 2v1a2 2 0 01-2 2h-2.5M6.5 19.25V16.5a2 2 0 012-2h7a2 2 0 012 2v2.75M12 14.75L12 16.5" />
                             </svg>
