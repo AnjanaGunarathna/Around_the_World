@@ -1,10 +1,11 @@
 import React from 'react';
 
-export default function FilterDropdown({ onSelect })
+export default function FilterDropdown({ onSelect, value })
 {
   return (
     <div className="relative inline-block">
       <select
+        value={value}
         onChange={(e) => onSelect(e.target.value)}
         className="appearance-none bg-white text-gray-700 border border-gray-200 hover:border-blue-500 px-4 py-3 pr-12 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer transition duration-300 font-medium"
       >
