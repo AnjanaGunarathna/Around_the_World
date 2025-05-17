@@ -13,6 +13,8 @@ export default function Home()
   const [loading, setLoading] = useState(true);
   const [fadeIn, setFadeIn] = useState(false);
 
+  const [selectedRegion, setSelectedRegion] = useState(() => sessionStorage.getItem('selectedRegion') || 'All');
+
   useEffect(() =>
   {
     setLoading(true);
@@ -32,9 +34,24 @@ export default function Home()
       });
   }, []);
 
+  useEffect(() =>
+  {
+    const savedRegion = sessionStorage.getItem('selectedRegion') || 'All';
+
+    if (savedRegion !== 'All')
+    {
+      fetchByRegion(savedRegion)
+        .then(data =>
+        {
+          setFiltered(data);
+        })
+        .catch(err => console.error(err));
+    }
+  }, [countries]);
+
   const handleSearch = (query) =>
   {
-    // Reset animation state
+
     setFadeIn(false);
 
     const result = countries.filter((c) =>
@@ -42,14 +59,15 @@ export default function Home()
     );
     setFiltered(result);
 
-    // Trigger animation after filter
+
     setTimeout(() => setFadeIn(true), 100);
   };
 
   const handleRegion = async (region) =>
   {
+    setSelectedRegion(region);
+    sessionStorage.setItem('selectedRegion', region);
     setLoading(true);
-    // Reset animation state
     setFadeIn(false);
 
     try
@@ -66,9 +84,8 @@ export default function Home()
     {
       console.error(err);
     }
-    setLoading(false);
 
-    // Trigger animation after new data loads
+    setLoading(false);
     setTimeout(() => setFadeIn(true), 100);
   };
 
@@ -86,7 +103,7 @@ export default function Home()
               <SearchBar onSearch={handleSearch} />
             </div>
             <div className="w-full md:w-1/3 md:flex md:justify-end transform transition duration-300 hover:-translate-y-1">
-              <FilterDropdown onSelect={handleRegion} />
+              <FilterDropdown onSelect={handleRegion} value={selectedRegion} />
             </div>
           </div>
 
